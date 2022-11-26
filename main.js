@@ -16,9 +16,9 @@ const upCounter = (ev) => {
   counterHtml.textContent = 'Puntos: ' + counter;
 };
 
-const randomNum = (min, max) => {
+/* const randomNum = (min, max) => {
   return ~~(Math.random() * (max + 1 - min)) + min;
-};
+}; */
 
 const removeBall = (ev) => {
   gameScreen.removeChild(ev.target);
@@ -33,8 +33,8 @@ const createStandarBall = () => {
   let standarBall = document.createElement('mdh-ball');
   standarBall.addEventListener('click', handleClickBall);
   standarBall.classList.add('standarBall');
-  standarBall.style.top = randomNum(20, 80) + '%';
-  standarBall.style.left = randomNum(20, 80) + '%';
+  /*   standarBall.style.top = randomNum(20, 80) + '%';
+  standarBall.style.left = randomNum(20, 80) + '%'; */
   gameScreen.appendChild(standarBall);
 };
 
