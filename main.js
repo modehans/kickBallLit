@@ -7,11 +7,7 @@ let counter = 0;
 
 const upCounter = (ev) => {
   counter = counter + ev.target.value;
-  counterHtml.textContent = 'Puntos: ' + counter;
-};
-
-const randomNum = (min, max) => {
-  return ~~(Math.random() * (max + 1 - min)) + min;
+  counterHtml.textContent = `Puntos: ${counter}`;
 };
 
 const removeBall = (ev) => {
