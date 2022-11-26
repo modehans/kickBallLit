@@ -1,10 +1,26 @@
 import { LitElement, html, css } from 'lit';
 
 export class MdhKickball extends LitElement {
+  constructor() {
+    super();
+    this.value = 1;
+    this.top = this.randomNum(20, 80);
+    this.left = this.randomNum(10, 90);
+  }
+
+  static properties = {
+    value: { type: Number },
+    top: { type: Number },
+    left: { type: Number },
+    styles: {},
+  };
+
   static styles = [
     css`
       :host {
         display: block;
+      }
+      .ball {
         position: absolute;
         width: 50px;
         height: 50px;
@@ -32,9 +48,18 @@ export class MdhKickball extends LitElement {
     `,
   ];
 
+  randomNum(min, max) {
+    return ~~(Math.random() * (max + 1 - min)) + min;
+  }
+
   render() {
-    let ball = html`<div><slot></slot></div>`;
-    return ball;
+    return html` <style>
+        .ball {
+          top: ${this.top}%;
+          left: ${this.left}%;
+        }
+      </style>
+      <div class="ball"></div>`;
   }
 }
 customElements.define('mdh-ball', MdhKickball);
