@@ -58,12 +58,12 @@ const createBlackBall = () => {
   blackBall.style.left = randomNum(10, 80) + '%';
   gameScreen.appendChild(blackBall);
 };
+
 const createPlusBall = () => {
   let plusBall = document.createElement('mdh-ball');
   plusBall.addEventListener('click', handleClickBall);
   plusBall.addEventListener('animationend', removeBall);
   plusBall.classList.add('plusBall');
-  plusBall.style.backgroundColor = 'purple';
   plusBall.style.top = randomNum(20, 80) + '%';
   plusBall.style.left = randomNum(10, 80) + '%';
   gameScreen.appendChild(plusBall);
