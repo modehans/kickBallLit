@@ -1,6 +1,6 @@
 # Kick Ball Lit
 
-## App in construction 🚧
+## App under construction 🚧
 
 ## Start 🚀
 
