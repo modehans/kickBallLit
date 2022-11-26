@@ -1,6 +1,6 @@
 'use strict';
 import './components/mdh-ball.js';
-const gameScreem = document.querySelector('.js_gameScreen');
+const gameScreen = document.querySelector('.js_gameScreen');
 const counterHtml = document.querySelector('.js_counter');
 
 let counter = 0;
@@ -21,7 +21,7 @@ const randomNum = (min, max) => {
 };
 
 const removeBall = (ev) => {
-  gameScreem.removeChild(ev.target);
+  gameScreen.removeChild(ev.target);
 };
 
 const handleClickBall = (ev) => {
@@ -35,7 +35,7 @@ const createStandarBall = () => {
   standarBall.classList.add('standarBall');
   standarBall.style.top = randomNum(20, 80) + '%';
   standarBall.style.left = randomNum(20, 80) + '%';
-  gameScreem.appendChild(standarBall);
+  gameScreen.appendChild(standarBall);
 };
 
 setInterval(createStandarBall, 1000);
