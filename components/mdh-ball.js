@@ -3,14 +3,18 @@ import { LitElement, html, css, unsafeCSS } from 'lit';
 export class MdhKickball extends LitElement {
   constructor() {
     super();
+    this.value = 1;
     this.top = this.randomNum(20, 80);
     this.left = this.randomNum(10, 90);
   }
 
   static properties = {
+    value: { type: Number },
     top: { type: Number },
     left: { type: Number },
+    styles: {},
   };
+
   static styles = [
     css`
       :host {
@@ -21,8 +25,25 @@ export class MdhKickball extends LitElement {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        cursor: pointer;
         background-color: plum;
+        cursor: pointer;
+        animation-duration: 2s;
+        animation-name: blink;
+        opacity: 0;
+      }
+
+      @keyframes blink {
+        from {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
       }
     `,
   ];
@@ -38,9 +59,7 @@ export class MdhKickball extends LitElement {
           left: ${this.left}%;
         }
       </style>
-      <div class="ball">
-        <slot></slot>
-      </div>`;
+      <div class="ball"></div>`;
   }
 }
 customElements.define('mdh-ball', MdhKickball);

@@ -6,19 +6,9 @@ const counterHtml = document.querySelector('.js_counter');
 let counter = 0;
 
 const upCounter = (ev) => {
-  if (ev.target.className.includes('plusBall')) {
-    counter = counter + 3;
-  } else if (ev.target.className.includes('blackBall')) {
-    counter = counter - 2;
-  } else if (ev.target.className.includes('standarBall')) {
-    counter = counter + 1;
-  }
-  counterHtml.textContent = 'Puntos: ' + counter;
+  counter = counter + ev.target.value;
+  counterHtml.textContent = `Puntos: ${counter}`;
 };
-
-/* const randomNum = (min, max) => {
-  return ~~(Math.random() * (max + 1 - min)) + min;
-}; */
 
 const removeBall = (ev) => {
   gameScreen.removeChild(ev.target);
@@ -29,13 +19,11 @@ const handleClickBall = (ev) => {
   removeBall(ev);
 };
 
-const createStandarBall = () => {
-  let standarBall = document.createElement('mdh-ball');
-  standarBall.addEventListener('click', handleClickBall);
-  standarBall.classList.add('standarBall');
-  /*   standarBall.style.top = randomNum(20, 80) + '%';
-  standarBall.style.left = randomNum(20, 80) + '%'; */
-  gameScreen.appendChild(standarBall);
+const createstandardBall = () => {
+  let standardBall = document.createElement('mdh-ball');
+  standardBall.addEventListener('click', handleClickBall);
+  standardBall.addEventListener('animationend', removeBall);
+  gameScreen.appendChild(standardBall);
 };
 
-setInterval(createStandarBall, 1000);
+setInterval(createstandardBall, 500);
