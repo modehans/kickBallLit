@@ -5,6 +5,7 @@ export class MdhKickball extends LitElement {
     css`
       :host {
         display: block;
+        position: absolute;
       }
       .ball {
         width: 50px;
