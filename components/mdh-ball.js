@@ -6,19 +6,34 @@ export class MdhKickball extends LitElement {
       :host {
         display: block;
         position: absolute;
-      }
-      .ball {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        cursor: pointer;
         background-color: plum;
+        cursor: pointer;
+        animation-duration: 2s;
+        animation-name: blink;
+        opacity: 0;
+      }
+
+      @keyframes blink {
+        from {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+        }
       }
     `,
   ];
 
   render() {
-    let ball = html`<div class="ball"><slot></slot></div>`;
+    let ball = html`<div><slot></slot></div>`;
     return ball;
   }
 }

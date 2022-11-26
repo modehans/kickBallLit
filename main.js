@@ -10,7 +10,7 @@ const upCounter = (ev) => {
     counter = counter + 3;
   } else if (ev.target.className.includes('blackBall')) {
     counter = counter - 2;
-  } else if (ev.target.className.includes('standarBall')) {
+  } else if (ev.target.className.includes('standardBall')) {
     counter = counter + 1;
   }
   counterHtml.textContent = 'Puntos: ' + counter;
@@ -29,13 +29,46 @@ const handleClickBall = (ev) => {
   removeBall(ev);
 };
 
-const createStandarBall = () => {
-  let standarBall = document.createElement('mdh-ball');
-  standarBall.addEventListener('click', handleClickBall);
-  standarBall.classList.add('standarBall');
-  standarBall.style.top = randomNum(20, 80) + '%';
-  standarBall.style.left = randomNum(20, 80) + '%';
-  gameScreen.appendChild(standarBall);
+const createstandardBall = () => {
+  let standardBall = document.createElement('mdh-ball');
+  standardBall.addEventListener('click', handleClickBall);
+  standardBall.addEventListener('animationend', removeBall);
+  standardBall.classList.add('standardBall');
+  standardBall.style.backgroundColor =
+    'rgb(' +
+    randomNum(0, 255) +
+    ',' +
+    randomNum(0, 255) +
+    ',' +
+    randomNum(0, 255) +
+    ')';
+  standardBall.style.top = randomNum(20, 80) + '%';
+  standardBall.style.left = randomNum(10, 80) + '%';
+  gameScreen.appendChild(standardBall);
 };
 
-setInterval(createStandarBall, 1000);
+const createBlackBall = () => {
+  let blackBall = document.createElement('mdh-ball');
+  blackBall.addEventListener('click', handleClickBall);
+  blackBall.addEventListener('animationend', removeBall);
+  blackBall.classList.add('blackBall');
+  blackBall.textContent = '💀';
+  blackBall.style.backgroundColor = 'black';
+  blackBall.style.top = randomNum(20, 80) + '%';
+  blackBall.style.left = randomNum(10, 80) + '%';
+  gameScreen.appendChild(blackBall);
+};
+const createPlusBall = () => {
+  let plusBall = document.createElement('mdh-ball');
+  plusBall.addEventListener('click', handleClickBall);
+  plusBall.addEventListener('animationend', removeBall);
+  plusBall.classList.add('plusBall');
+  plusBall.style.backgroundColor = 'purple';
+  plusBall.style.top = randomNum(20, 80) + '%';
+  plusBall.style.left = randomNum(10, 80) + '%';
+  gameScreen.appendChild(plusBall);
+};
+
+setInterval(createstandardBall, 500);
+setInterval(createBlackBall, 800);
+setInterval(createPlusBall, 2000);
