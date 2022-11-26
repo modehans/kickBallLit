@@ -15,11 +15,9 @@ export class MdhKickball extends LitElement {
     css`
       :host {
         display: block;
-        position: absolute;
-        top: ${unsafeCSS(this.top)}%;
-        left: ${unsafeCSS(this.left)}%;
       }
       .ball {
+        position: absolute;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -34,10 +32,15 @@ export class MdhKickball extends LitElement {
   }
 
   render() {
-    console.log('Top property', this.top); ///Cambia pero no lo está cogiendo
-    console.log('Left property', this.left);
-    let ball = html`<div class="ball"><slot></slot></div>`;
-    return ball;
+    return html` <style>
+        .ball {
+          top: ${this.top}%;
+          left: ${this.left}%;
+        }
+      </style>
+      <div class="ball">
+        <slot></slot>
+      </div>`;
   }
 }
 customElements.define('mdh-ball', MdhKickball);
