@@ -6,27 +6,24 @@ export class MdhKickball extends LitElement {
     this.value = 1;
     this.top = this.randomNum(20, 80);
     this.left = this.randomNum(10, 90);
+    this.colorBall = `rgb( 
+      ${this.randomNum(0, 255)}, 
+      ${this.randomNum(0, 255)}, 
+      ${this.randomNum(0, 255)}
+    )`;
   }
 
   static properties = {
     value: { type: Number },
     top: { type: Number },
     left: { type: Number },
-    styles: {},
+    colorBall: { type: String },
   };
 
   static styles = [
     css`
       :host {
         display: block;
-      }
-      .ball {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: plum;
-        cursor: pointer;
         animation-duration: 2s;
         animation-name: blink;
         opacity: 0;
@@ -45,6 +42,14 @@ export class MdhKickball extends LitElement {
           opacity: 0;
         }
       }
+      .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: plum;
+        cursor: pointer;
+      }
     `,
   ];
 
@@ -59,9 +64,7 @@ export class MdhKickball extends LitElement {
   }
 
   render() {
-    return html`
-      <div class="ball"></div>
-    `;
+    return html` <div class="ball"></div> `;
   }
 }
 
