@@ -24,13 +24,6 @@ export class MdhKickball extends LitElement {
     css`
       :host {
         display: block;
-      }
-      .ball {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
         animation-duration: 2s;
         animation-name: blink;
         opacity: 0;
@@ -48,6 +41,13 @@ export class MdhKickball extends LitElement {
         to {
           opacity: 0;
         }
+      }
+      .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
       }
     `,
   ];

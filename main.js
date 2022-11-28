@@ -19,11 +19,11 @@ const handleClickBall = (ev) => {
   removeBall(ev);
 };
 
-const createstandardBall = () => {
+const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
   standardBall.addEventListener('click', handleClickBall);
   standardBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(standardBall);
 };
 
-setInterval(createstandardBall, 500);
+setInterval(createStandardBall, 500);
