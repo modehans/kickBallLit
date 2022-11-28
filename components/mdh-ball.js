@@ -1,18 +1,23 @@
-import { LitElement, html, css, unsafeCSS } from 'lit';
+import { LitElement, html, css } from 'lit';
 
 export class MdhKickball extends LitElement {
   constructor() {
     super();
     this.value = 1;
-    this.top = this.randomNum(20, 80);
-    this.left = this.randomNum(10, 90);
+    this.positionTop = this.randomNum(20, 80);
+    this.positionLeft = this.randomNum(10, 90);
+    this.colorBall = `rgb( 
+      ${this.randomNum(0, 255)}, 
+      ${this.randomNum(0, 255)}, 
+      ${this.randomNum(0, 255)}
+    )`;
   }
 
   static properties = {
     value: { type: Number },
     top: { type: Number },
     left: { type: Number },
-    styles: {},
+    colorBall: { type: String },
   };
 
   static styles = [
@@ -25,7 +30,6 @@ export class MdhKickball extends LitElement {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: plum;
         cursor: pointer;
         animation-duration: 2s;
         animation-name: blink;
@@ -53,13 +57,11 @@ export class MdhKickball extends LitElement {
   }
 
   render() {
-    return html` <style>
-        .ball {
-          top: ${this.top}%;
-          left: ${this.left}%;
-        }
-      </style>
-      <div class="ball"></div>`;
+    return html` <div
+      class="ball"
+      style="top: ${this.positionTop}%;
+          left: ${this.positionLeft}%; background:${this.colorBall}"
+    ></div>`;
   }
 }
 customElements.define('mdh-ball', MdhKickball);
