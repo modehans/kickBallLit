@@ -52,14 +52,17 @@ export class MdhKickball extends LitElement {
     return ~~(Math.random() * (max + 1 - min)) + min;
   }
 
+  firstUpdated() {
+    this.styles = this.shadowRoot.querySelector('.ball').style;
+    this.styles.top = `${this.top}%`;
+    this.styles.left = `${this.left}%`;
+  }
+
   render() {
-    return html` <style>
-        .ball {
-          top: ${this.top}%;
-          left: ${this.left}%;
-        }
-      </style>
-      <div class="ball"></div>`;
+    return html`
+      <div class="ball"></div>
+    `;
   }
 }
+
 customElements.define('mdh-ball', MdhKickball);
