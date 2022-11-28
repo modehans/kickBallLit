@@ -61,6 +61,7 @@ export class MdhKickball extends LitElement {
     this.styles = this.shadowRoot.querySelector('.ball').style;
     this.styles.top = `${this.top}%`;
     this.styles.left = `${this.left}%`;
+    this.styles.background = `${this.colorBall}`;
   }
 
   render() {
