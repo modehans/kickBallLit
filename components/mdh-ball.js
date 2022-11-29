@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class MdhKickball extends LitElement {
+export class MdhBall extends LitElement {
   constructor() {
     super();
     this.value = 1;
@@ -69,4 +69,4 @@ export class MdhKickball extends LitElement {
   }
 }
 
-customElements.define('mdh-ball', MdhKickball);
+customElements.define('mdh-ball', MdhBall);

@@ -1,5 +1,6 @@
 'use strict';
 import './components/mdh-ball.js';
+import './components/mdh-blackball.js';
 const gameScreen = document.querySelector('.js_gameScreen');
 const counterHtml = document.querySelector('.js_counter');
 
@@ -27,3 +28,12 @@ const createStandardBall = () => {
 };
 
 setInterval(createStandardBall, 500);
+
+const createBlackBall = () => {
+  let blackBall = document.createElement('mdh-blackball');
+  blackBall.addEventListener('click', handleClickBall);
+  blackBall.addEventListener('animationend', removeBall);
+  gameScreen.appendChild(blackBall);
+};
+
+setInterval(createBlackBall, 500);
