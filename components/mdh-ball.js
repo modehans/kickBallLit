@@ -24,7 +24,7 @@ export class MdhBall extends LitElement {
     css`
       :host {
         display: block;
-        /*    animation-duration: 2s;
+        animation-duration: 2s;
         animation-name: blink;
         opacity: 0;
       }
@@ -40,7 +40,7 @@ export class MdhBall extends LitElement {
 
         to {
           opacity: 0;
-        } */
+        }
       }
       .ball {
         position: absolute;
@@ -71,7 +71,7 @@ export class MdhBall extends LitElement {
   handleClickBall() {
     console.log('this', this);
     console.log('Local Name', this.localName);
-
+    this.dispatchEvent(new CustomEvent('clickedBall'));
     this.remove();
   }
 }

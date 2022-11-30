@@ -15,18 +15,18 @@ const removeBall = (ev) => {
 };
 const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
-
+  standardBall.addEventListener('clickedBall', upCounter);
   standardBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(standardBall);
 };
 
 setInterval(createStandardBall, 1000);
 
-/* const createBlackBall = () => {
+const createBlackBall = () => {
   let blackBall = document.createElement('mdh-blackball');
-
+  blackBall.addEventListener('clickedBall', upCounter);
   blackBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(blackBall);
 };
 
-setInterval(createBlackBall, 500); */
+setInterval(createBlackBall, 500);
