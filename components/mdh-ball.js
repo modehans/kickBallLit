@@ -65,7 +65,14 @@ export class MdhBall extends LitElement {
   }
 
   render() {
-    return html` <div class="ball"></div> `;
+    return html` <div class="ball" @click=${this.handleClickBall}></div> `;
+  }
+
+  handleClickBall() {
+    console.log('this', this);
+    console.log('Local Name', this.localName);
+    this.dispatchEvent(new CustomEvent('clickedBall'));
+    this.remove();
   }
 }
 

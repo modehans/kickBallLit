@@ -15,25 +15,19 @@ const removeBall = (ev) => {
   gameScreen.removeChild(ev.target);
 };
 
-const handleClickBall = (ev) => {
-  upCounter(ev);
-  removeBall(ev);
-};
-
 const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
-  standardBall.addEventListener('click', handleClickBall);
+  standardBall.addEventListener('clickedBall', upCounter);
   standardBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(standardBall);
 };
 
-setInterval(createStandardBall, 500);
-
 const createBlackBall = () => {
   let blackBall = document.createElement('mdh-blackball');
-  blackBall.addEventListener('click', handleClickBall);
+  blackBall.addEventListener('clickedBall', upCounter);
   blackBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(blackBall);
 };
 
+setInterval(createStandardBall, 1000);
 setInterval(createBlackBall, 500);
