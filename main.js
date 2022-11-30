@@ -10,17 +10,17 @@ const upCounter = (ev) => {
   counter = counter + ev.target.value;
   counterHtml.textContent = `Puntos: ${counter}`;
 };
+
 const removeBall = (ev) => {
   gameScreen.removeChild(ev.target);
 };
+
 const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
   standardBall.addEventListener('clickedBall', upCounter);
   standardBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(standardBall);
 };
-
-setInterval(createStandardBall, 1000);
 
 const createBlackBall = () => {
   let blackBall = document.createElement('mdh-blackball');
@@ -29,4 +29,5 @@ const createBlackBall = () => {
   gameScreen.appendChild(blackBall);
 };
 
+setInterval(createStandardBall, 1000);
 setInterval(createBlackBall, 500);
