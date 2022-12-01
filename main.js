@@ -15,16 +15,16 @@ const removeBall = (ev) => {
   gameScreen.removeChild(ev.target);
 };
 
+gameScreen.addEventListener('clickedBall', upCounter);
+
 const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
-  standardBall.addEventListener('clickedBall', upCounter);
   standardBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(standardBall);
 };
 
 const createBlackBall = () => {
   let blackBall = document.createElement('mdh-blackball');
-  blackBall.addEventListener('clickedBall', upCounter);
   blackBall.addEventListener('animationend', removeBall);
   gameScreen.appendChild(blackBall);
 };

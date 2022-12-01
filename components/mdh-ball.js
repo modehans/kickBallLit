@@ -69,9 +69,13 @@ export class MdhBall extends LitElement {
   }
 
   handleClickBall() {
-    console.log('this', this);
-    console.log('Local Name', this.localName);
-    this.dispatchEvent(new CustomEvent('clickedBall'));
+    const options = {
+      bubbles: true,
+      composed: true,
+    };
+
+    this.dispatchEvent(new CustomEvent('clickedBall', options));
+
     this.remove();
   }
 }
