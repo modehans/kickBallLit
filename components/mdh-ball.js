@@ -11,7 +11,7 @@ export class MdhBall extends LitElement {
       ${this.randomNum(0, 255)}, 
       ${this.randomNum(0, 255)}
     )`;
-    this.lifeTime = 5;
+    this.lifeTime = 2000;
     this.deathBall = this.deathBall.bind(this);
   }
 
@@ -63,8 +63,8 @@ export class MdhBall extends LitElement {
     this.styles.top = `${this.top}%`;
     this.styles.left = `${this.left}%`;
     this.styles.background = `${this.colorBall}`;
-    this.styles.animationDuration = `${this.lifeTime}s`;
-    setTimeout(this.deathBall, this.lifeTime * 1000);
+    this.styles.animationDuration = `${this.lifeTime}ms`;
+    setTimeout(this.deathBall, this.lifeTime);
   }
 
   render() {
