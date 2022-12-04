@@ -11,6 +11,7 @@ export class MdhBall extends LitElement {
       ${this.randomNum(0, 255)}, 
       ${this.randomNum(0, 255)}
     )`;
+    this.lifeTime = 5;
   }
 
   static properties = {
@@ -24,7 +25,14 @@ export class MdhBall extends LitElement {
     css`
       :host {
         display: block;
-        animation-duration: 2s;
+      }
+      .ball {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: plum;
+        cursor: pointer;
         animation-name: blink;
         opacity: 0;
       }
@@ -42,14 +50,6 @@ export class MdhBall extends LitElement {
           opacity: 0;
         }
       }
-      .ball {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: plum;
-        cursor: pointer;
-      }
     `,
   ];
 
@@ -62,6 +62,7 @@ export class MdhBall extends LitElement {
     this.styles.top = `${this.top}%`;
     this.styles.left = `${this.left}%`;
     this.styles.background = `${this.colorBall}`;
+    this.styles.animationDuration = `${this.lifeTime}s`;
   }
 
   render() {
