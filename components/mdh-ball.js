@@ -12,6 +12,7 @@ export class MdhBall extends LitElement {
       ${this.randomNum(0, 255)}
     )`;
     this.lifeTime = 5;
+    this.deathBall = this.deathBall.bind(this);
   }
 
   static properties = {
@@ -63,10 +64,15 @@ export class MdhBall extends LitElement {
     this.styles.left = `${this.left}%`;
     this.styles.background = `${this.colorBall}`;
     this.styles.animationDuration = `${this.lifeTime}s`;
+    setTimeout(this.deathBall, this.lifeTime * 1000);
   }
 
   render() {
     return html` <div class="ball" @click=${this.handleClickBall}></div> `;
+  }
+
+  deathBall() {
+    this.remove();
   }
 
   handleClickBall() {
@@ -76,8 +82,7 @@ export class MdhBall extends LitElement {
     };
 
     this.dispatchEvent(new CustomEvent('clickedBall', options));
-
-    this.remove();
+    this.deathBall();
   }
 }
 

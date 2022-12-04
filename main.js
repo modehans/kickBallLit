@@ -15,7 +15,6 @@ gameScreen.addEventListener('clickedBall', upCounter);
 
 const createStandardBall = () => {
   let standardBall = document.createElement('mdh-ball');
-
   gameScreen.appendChild(standardBall);
 };
 
