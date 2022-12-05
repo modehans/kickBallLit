@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit';
 export class MdhBall extends LitElement {
   constructor() {
     super();
-    this.value = 1;
+    this._value = 1;
     this.top = this.randomNum(20, 80);
     this.left = this.randomNum(10, 90);
     this.colorBall = `rgb( 
@@ -16,10 +16,10 @@ export class MdhBall extends LitElement {
   }
 
   static properties = {
-    value: { type: Number },
     top: { type: Number },
     left: { type: Number },
     colorBall: { type: String },
+    prueba: { type: String, reflect: true },
   };
 
   static styles = [
@@ -55,7 +55,7 @@ export class MdhBall extends LitElement {
   ];
 
   randomNum(min, max) {
-    return ~~(Math.random() * (max + 1 - min)) + min;
+    return parseInt(Math.random() * (max + 1 - min)) + min;
   }
 
   firstUpdated() {
@@ -76,7 +76,11 @@ export class MdhBall extends LitElement {
   }
 
   handleClickBall() {
+    const detail = {
+      value: this._value,
+    };
     const options = {
+      detail,
       bubbles: true,
       composed: true,
     };

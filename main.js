@@ -7,7 +7,7 @@ const counterHtml = document.querySelector('.js_counter');
 let counter = 0;
 
 const upCounter = (ev) => {
-  counter = counter + ev.target.value;
+  counter = counter + ev.detail.value;
   counterHtml.textContent = `Puntos: ${counter}`;
 };
 
