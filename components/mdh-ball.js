@@ -19,7 +19,6 @@ export class MdhBall extends LitElement {
     top: { type: Number },
     left: { type: Number },
     colorBall: { type: String },
-    prueba: { type: String, reflect: true },
   };
 
   static styles = [
