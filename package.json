@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Kick the ball Lit",
   "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "web-dev-server --node-resolve --open --watch"
   },
   "author": "Mónica González Sánchez",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@web/dev-server": "^0.1.35"
   },
