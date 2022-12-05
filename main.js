@@ -1,6 +1,6 @@
 'use strict';
 import './components/mdh-ball.js';
-import './components/mdh-blackball.js';
+import './components/mdh-blackBall.js';
 const gameScreen = document.querySelector('.js_gameScreen');
 const counterHtml = document.querySelector('.js_counter');
 
