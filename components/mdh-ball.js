@@ -15,43 +15,47 @@ export class MdhBall extends LitElement {
     this.deathBall = this.deathBall.bind(this);
   }
 
-  static properties = {
-    top: { type: Number },
-    left: { type: Number },
-    colorBall: { type: String },
-  };
+  static get properties() {
+    return {
+      top: { type: Number },
+      left: { type: Number },
+      colorBall: { type: String },
+    };
+  }
 
-  static styles = [
-    css`
-      :host {
-        display: block;
-      }
-      .ball {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: plum;
-        cursor: pointer;
-        animation-name: blink;
-        opacity: 0;
-      }
-
-      @keyframes blink {
-        from {
+  static get styles() {
+    return [
+      css`
+        :host {
+          display: block;
+        }
+        .ball {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: plum;
+          cursor: pointer;
+          animation-name: blink;
           opacity: 0;
         }
 
-        50% {
-          opacity: 1;
-        }
+        @keyframes blink {
+          from {
+            opacity: 0;
+          }
 
-        to {
-          opacity: 0;
+          50% {
+            opacity: 1;
+          }
+
+          to {
+            opacity: 0;
+          }
         }
-      }
-    `,
-  ];
+      `,
+    ];
+  }
 
   randomNum(min, max) {
     return parseInt(Math.random() * (max + 1 - min)) + min;
