@@ -1,6 +1,6 @@
-import { MdhBall } from './mdh-ball';
+import { BasicBall } from 'basic-ball/src/BasicBall';
 
-export class MdhExtraBall extends MdhBall {
+export class MdhExtraBall extends BasicBall {
   constructor() {
     super();
     this._value = 3;

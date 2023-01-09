@@ -1,5 +1,5 @@
 'use strict';
-import './components/mdh-ball.js';
+import 'basic-ball/basic-ball.js';
 import './components/mdh-blackBall.js';
 import './components/mdh-extraBall.js';
 const gameScreen = document.querySelector('.js_gameScreen');
@@ -15,7 +15,7 @@ const upCounter = (ev) => {
 gameScreen.addEventListener('clickedBall', upCounter);
 
 const createStandardBall = () => {
-  let standardBall = document.createElement('mdh-ball');
+  let standardBall = document.createElement('basic-ball');
   gameScreen.appendChild(standardBall);
 };
 
